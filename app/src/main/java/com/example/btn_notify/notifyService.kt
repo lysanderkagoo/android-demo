@@ -1,5 +1,6 @@
 package com.example.btn_notify
 
+import android.Manifest
 import android.app.Notification
 import android.app.Service
 import android.content.Intent
@@ -9,14 +10,17 @@ import androidx.annotation.RequiresApi
 import androidx.core.app.NotificationCompat
 import android.app.NotificationChannel
 import android.app.NotificationManager
+import android.content.pm.PackageManager
 import android.content.pm.ServiceInfo.FOREGROUND_SERVICE_TYPE_DATA_SYNC
 import android.util.Log
+import androidx.annotation.RequiresPermission
+import androidx.core.app.ActivityCompat
+import androidx.core.app.NotificationManagerCompat
 import androidx.core.app.ServiceCompat
 
 class NotifyService : Service() {
 
     var message:String? = null
-    lateinit var notify: Notification
 
     override fun onBind(intent: Intent?): IBinder? {
         return null
@@ -26,18 +30,16 @@ class NotifyService : Service() {
     override fun onCreate() {
         super.onCreate()
 
-
         val channel = NotificationChannel(
             "btn_notify",
             "Music Notification",
             NotificationManager.IMPORTANCE_HIGH
         )
-
-        val manager = getSystemService(NotificationManager::class.java)
-        manager.createNotificationChannel(channel)
+        getSystemService(NotificationManager::class.java).createNotificationChannel(channel)
 
         Log.d("NotifyService", "onCreate called")
     }
+
 
     @RequiresApi(Build.VERSION_CODES.Q)
     override fun onStartCommand(intent: Intent?, flags: Int, startId: Int): Int {
@@ -50,9 +52,23 @@ class NotifyService : Service() {
             }
             else -> {
 
+                startForeground(1, createNotification())
 
-                val notificationManager = getSystemService(NotificationManager::class.java)
-                notificationManager.notify(1, notify)
+                if (ActivityCompat.checkSelfPermission(
+                        this,
+                        Manifest.permission.POST_NOTIFICATIONS
+                    ) != PackageManager.PERMISSION_GRANTED
+                ) {
+                    // TODO: Consider calling
+                    //    ActivityCompat#requestPermissions
+                    // here to request the missing permissions, and then overriding
+                    //   public void onRequestPermissionsResult(int requestCode, String[] permissions,
+                    //                                          int[] grantResults)
+                    // to handle the case where the user grants the permission. See the documentation
+                    // for ActivityCompat#requestPermissions for more details.
+                    return START_NOT_STICKY
+                }
+                NotificationManagerCompat.from(this).notify(1, createNotification())
 
                 Log.d("NotifyService", "onStartCommand called")
             }
@@ -61,12 +77,19 @@ class NotifyService : Service() {
         return START_NOT_STICKY
     }
 
-    fun createNotificationChannel() {
-        val notificationManager = getSystemService(NotificationManager::class.java)  NotificationCompat.Builder(this, "btn_notify")
-            .setContentTitle("Music App")
-            .setContentText(message)
+    fun createNotification(): Notification {
+        return NotificationCompat.Builder(this, "btn_notify")
             .setSmallIcon(R.drawable.ic_launcher_foreground)
+            .setContentTitle("Music Notification")
+            .setContentText(message)
+            .setOnlyAlertOnce(true)
+            .setOngoing(true)
             .build()
+    }
+
+    override fun onDestroy() {
+        super.onDestroy()
+        Log.d("NotifyService", "onDestroy called")
     }
 
 
