@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">btn_notify</string>
+    <string name="m1">Music Button - Jazz</string>
+    <string name="m2">Music Button - Rock</string>
+    <string name="m3">Music Button - Tamil</string>
+    <string name="m4">Music Button - English</string>
+    <string name="stop">Stop</string>
+</resources>
