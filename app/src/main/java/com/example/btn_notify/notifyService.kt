@@ -35,7 +35,7 @@ class NotifyService : Service() {
             "Music Notification",
             NotificationManager.IMPORTANCE_HIGH
         )
-        getSystemService(NotificationManager::class.java).createNotificationChannel(channel)
+        //getSystemService(NotificationManager::class.java).createNotificationChannel(channel)
 
         Log.d("NotifyService", "onCreate called")
     }
