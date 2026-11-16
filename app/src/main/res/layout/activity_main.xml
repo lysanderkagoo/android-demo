@@ -73,7 +73,7 @@
         app:backgroundTint="#FF0000"
         app:rippleColor="@color/white"
         app:cornerRadius="7dp"
-        app:strokeColor="#FFFFFF"
+        app:strokeColor="#D1C4E9"
         app:strokeWidth="1.5dp"/>
 
     <androidx.constraintlayout.widget.Guideline android:layout_width="wrap_content"
