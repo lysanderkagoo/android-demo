@@ -1,0 +1,209 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#151321"
+    android:fillViewport="true">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <com.google.android.material.card.MaterialCardView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:cardBackgroundColor="#191728"
+            app:cardCornerRadius="28dp"
+            app:cardElevation="8dp"
+            app:strokeWidth="0dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="82dp"
+                    android:background="#5B4BC4"
+                    android:fontFamily="@font/indie_flower"
+                    android:gravity="bottom"
+                    android:paddingStart="20dp"
+                    android:text="Message Sender"
+                    android:textColor="#FFFFFF"
+                    android:textSize="25sp"
+                    android:textStyle="bold" />
+
+
+                <com.google.android.material.imageview.ShapeableImageView
+                    android:id="@+id/imageview"
+                    android:layout_width="match_parent"
+                    android:layout_height="120dp"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginTop="20dp"
+                    android:layout_marginRight="20dp"
+                    android:adjustViewBounds="true"
+                    android:contentDescription="TODO"
+                    android:scaleType="centerCrop"
+                    app:shapeAppearanceOverlay="@style/RoundedCorners"
+                    app:srcCompat="@drawable/image" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="46dp"
+                    android:layout_marginTop="30dp"
+                    android:fontFamily="@font/indie_flower"
+                    android:paddingStart="15dp"
+                    android:paddingEnd="15dp"
+                    android:text="Write a message"
+                    android:textColor="@color/white"
+                    android:textSize="30sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/indie_flower"
+                    android:paddingStart="15dp"
+                    android:paddingEnd="15dp"
+                    android:text="It will be shown on the next screen"
+                    android:textColor="#A39DBB"
+                    android:textSize="20sp" />
+
+                <com.google.android.material.card.MaterialCardView
+                    android:layout_width="match_parent"
+                    android:layout_height="110dp"
+                    android:layout_margin="16dp"
+                    app:cardBackgroundColor="#29253F"
+                    app:cardCornerRadius="10dp"
+                    app:strokeColor="#625A8A"
+                    app:strokeWidth="1.5dp">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/textMsg"
+                        android:layout_width="match_parent"
+                        android:layout_height="110dp"
+                        android:background="@null"
+                        android:gravity="top"
+                        android:hapticFeedbackEnabled="true"
+                        android:hint="Type your message here..."
+                        android:inputType="textMultiLine"
+                        android:maxLength="100"
+                        android:padding="14dp"
+                        android:textColor="@color/white"
+                        android:textColorHint="#CECECE"
+                        android:textSize="20sp" />
+
+
+                </com.google.android.material.card.MaterialCardView>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:paddingStart="15dp"
+                    android:paddingEnd="12dp"
+                    android:text="Send to"
+                    android:textColor="@color/white"
+                    android:textSize="22sp"
+                    android:textStyle="bold" />
+
+                <Spinner
+                    android:id="@+id/options"
+                    android:layout_width="match_parent"
+                    android:layout_height="52dp"
+                    android:layout_margin="20dp"
+                    android:background="@drawable/spinnergd"
+                    android:paddingStart="14dp"
+                    android:paddingEnd="14dp"
+                    android:spinnerMode="dropdown" />
+
+                <Switch
+                    android:layout_width="2in"
+                    android:layout_height="55dp"
+                    android:layout_gravity="center"
+                    android:layout_marginBottom="18dp"
+                    android:hapticFeedbackEnabled="true"
+                    android:switchMinWidth="50dp"
+                    android:text="Mark as urgent"
+                    android:textColor="@color/white"
+                    android:textSize="22sp"
+                    android:thumb="@drawable/track"
+                    android:track="@drawable/switch_bg"
+                    tools:ignore="UseSwitchCompatOrMaterialXml" />
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/sendButton"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="30dp"
+                    android:layout_marginRight="30dp"
+                    android:backgroundTint="#AF8FFF"
+                    android:text="Send to next screen"
+                    android:textColor="@color/black"
+                    android:textSize="20sp"
+                    android:textStyle="bold"
+                    app:cornerRadius="9dp" />
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/websiteButton"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="30dp"
+                    android:layout_marginTop="12dp"
+                    android:layout_marginRight="30dp"
+                    android:backgroundTint="#05FFFFFF"
+                    android:text="Open Website"
+                    android:textColor="#D6CD98FF"
+                    android:textSize="20sp"
+                    android:textStyle="bold"
+                    app:cornerRadius="9dp"
+                    app:strokeColor="#AF8FFF"
+                    app:strokeWidth="2dp" />
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/cameraButton"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="30dp"
+                    android:layout_marginTop="12dp"
+                    android:layout_marginRight="30dp"
+                    android:backgroundTint="#05FFFFFF"
+                    android:text="Open Camera"
+                    android:textColor="#D6CD98FF"
+                    android:textSize="20sp"
+                    android:textStyle="bold"
+                    app:cornerRadius="9dp"
+                    app:strokeColor="#AF8FFF"
+                    app:strokeWidth="2dp" />
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/imageButton"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="30dp"
+                    android:layout_marginTop="12dp"
+                    android:layout_marginRight="30dp"
+                    android:backgroundTint="#05FFFFFF"
+                    android:text="Open Image"
+                    android:textColor="#D6CD98FF"
+                    android:textSize="20sp"
+                    android:textStyle="bold"
+                    app:cornerRadius="9dp"
+                    app:strokeColor="#AF8FFF"
+                    app:strokeWidth="2dp" />
+
+
+            </LinearLayout>
+
+
+        </com.google.android.material.card.MaterialCardView>
+
+
+    </LinearLayout>
+
+</ScrollView>

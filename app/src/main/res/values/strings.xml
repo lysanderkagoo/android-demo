@@ -1,0 +1,4 @@
+<resources>
+    <string name="app_name">taskui</string>
+    <style name="reminder">Reminder</style>
+</resources>
