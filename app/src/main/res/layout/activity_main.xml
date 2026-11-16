@@ -5,7 +5,7 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#2AC2FF"
+    android:background="#000000"
     tools:context=".MainActivity">
 
     <com.google.android.material.button.MaterialButton
@@ -31,7 +31,7 @@
         android:layout_marginTop="200dp"
         android:text="@string/m2"
         android:textColor="@color/white"
-        app:backgroundTint="#451010"
+        app:backgroundTint="#9B691C"
         app:rippleColor="@color/black"/>
 
     <com.google.android.material.button.MaterialButton
@@ -71,6 +71,12 @@
         app:layout_constraintTop_toTopOf="parent"
         android:layout_marginTop="700dp"
         app:backgroundTint="#FF0000"
-        app:rippleColor="@color/white"/>
+        app:rippleColor="@color/white"
+        app:cornerRadius="7dp"
+        app:strokeColor="#D1C4E9"
+        app:strokeWidth="1.5dp"/>
+
+    <androidx.constraintlayout.widget.Guideline android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

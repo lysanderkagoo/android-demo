@@ -17,6 +17,9 @@ import androidx.annotation.RequiresPermission
 import androidx.core.app.ActivityCompat
 import androidx.core.app.NotificationManagerCompat
 import androidx.core.app.ServiceCompat
+import android.util.Log
+import androidx.annotation.RequiresPermission
+import androidx.core.app.NotificationManagerCompat
 
 class NotifyService : Service() {
 
@@ -31,6 +34,7 @@ class NotifyService : Service() {
         super.onCreate()
 
         val channel = NotificationChannel(
+        NotificationChannel(
             "btn_notify",
             "Music Notification",
             NotificationManager.IMPORTANCE_HIGH
@@ -41,6 +45,7 @@ class NotifyService : Service() {
     }
 
 
+    @RequiresPermission(Manifest.permission.POST_NOTIFICATIONS)
     @RequiresApi(Build.VERSION_CODES.Q)
     override fun onStartCommand(intent: Intent?, flags: Int, startId: Int): Int {
 
@@ -68,6 +73,7 @@ class NotifyService : Service() {
                     // for ActivityCompat#requestPermissions for more details.
                     return START_NOT_STICKY
                 }
+
                 NotificationManagerCompat.from(this).notify(1, createNotification())
 
                 Log.d("NotifyService", "onStartCommand called")
